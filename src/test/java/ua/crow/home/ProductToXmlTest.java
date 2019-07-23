@@ -15,10 +15,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import ua.crow.home.configuration.HomeConfig;
-import ua.crow.home.dto.EkbRequestDto;
-import ua.crow.home.dto.EkbResponseDto;
-import ua.crow.home.dto.I;
-import ua.crow.home.dto.R;
+import ua.crow.home.dto.*;
+import ua.crow.home.enums.EkbRequest;
 import ua.crow.home.service.MarshallerWrapperService;
 import ua.crow.home.service.MarshallerWrapperServiceImpl;
 
@@ -26,6 +24,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import java.io.StringWriter;
+import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -59,5 +58,9 @@ public class ProductToXmlTest {
         System.out.println(ff.toString());
         System.out.println(ffff.toString());
         System.out.println(fg.getR().getInfs());
+
+        LetterClient lc = new LetterClient("1234567890","Фамилия","Имя","Отчество", new Date());
+        EkbCreateRequest ekbCreateRequest = new EkbCreateRequest(lc, EkbRequest.INF_NEW);
+        ekbCreateRequest.getCreate();
     }
 }

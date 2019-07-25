@@ -92,6 +92,11 @@
             <artifactId>poi-ooxml</artifactId>
             <version>LATEST</version>
         </dependency>
+        <dependency>
+            <groupId>org.asynchttpclient</groupId>
+            <artifactId>async-http-client</artifactId>
+            <version>LATEST</version>
+        </dependency>
     </dependencies>
 
     <build>
